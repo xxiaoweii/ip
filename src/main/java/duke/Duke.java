@@ -1,12 +1,17 @@
 package duke;
 
-import duke.exception.UnknownCommandException;
-import duke.exception.ChattyException;
-import duke.exception.DetailsUnknownException;
-
 import java.io.IOException;
 import java.time.format.DateTimeParseException;
 
+import duke.exception.ChattyException;
+import duke.exception.DetailsUnknownException;
+import duke.exception.UnknownCommandException;
+
+
+/**
+ * Duke is the main clas that will run and call other classes based on
+ * the command entered by user
+ */
 public class Duke {
 
     private Ui ui;
@@ -91,7 +96,7 @@ public class Duke {
                         command.handleTodo(userInput, todoC);
                     } else if (userInput.startsWith(findC)) {
                         command.handleFind(userInput, findC);
-                    }else {
+                    } else {
                         throw new UnknownCommandException();
                     }
                     storage.saveTaskToFile();
